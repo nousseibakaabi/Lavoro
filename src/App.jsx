@@ -1,23 +1,36 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
-import Signup from "./SignUp";
-import {Routes,BrowserRouter,Route} from 'react-router-dom';
-import Signin from "./Signin";
+import { Routes, BrowserRouter, Route, Navigate } from 'react-router-dom';
+import SignUp from "./user/Signup"; // Ensure the correct file name
+import SignIn from "./user/Signin"; // Ensure the correct file name
+import AuthContainer from './user/AuthContainer';
+import Home from "./Home";
+import VerifyEmail from "./user/verifymail";
+import './styles.css'; // Assuming this is where your styles are located
 
 function App() {
-
   return (
     <>
-    <BrowserRouter>
-    <Routes>
-      <Route path="/register" element={<Signup />} />
-      <Route path="/login" element={<Signin />} />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/verify-email" element={<VerifyEmail />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/register" element={<SignUp />} />
 
-    </Routes>
-    </BrowserRouter>
-   </> 
+          <Route
+            path="/auth/*"
+            element={
+              <div className="App">
+                <AuthContainer />
+              </div>
+            }
+          />
+          <Route path="/" element={<Navigate to="/auth" />} />
+
+          <Route path="*" element={<Navigate to="/auth" />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
