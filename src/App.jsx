@@ -5,9 +5,9 @@ import SignIn from "./user/Signin"; // Ensure the correct file name
 import AuthContainer from './user/AuthContainer';
 import Home from "./Home";
 import VerifyEmail from "./user/verifymail";
-import './styles.css'; // Assuming this is where your styles are located
 import ForgotPassword from "./user/ForgetPassword";
 import ResetPassword from "./user/resetPassword";
+import './styles.css'; // Assuming this is where your styles are located
 
 function App() {
   return (
@@ -17,11 +17,10 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/verify-email" element={<VerifyEmail />} />
           <Route path="/signin" element={<SignIn />} />
-          <Route path="/register" element={<SignUp />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/signup" element={<SignUp />} />
 
+          <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/resetpassword" element={<ResetPassword />} />
-         
 
           <Route
             path="/auth/*"

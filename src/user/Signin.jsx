@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Import eye icons
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // Import the useNavigate hook for redirecting
 
 function SignIn() {
     const [formData, setFormData] = useState({ email: '', password: '' });
     const [error, setError] = useState(null);
-    const [showPassword, setShowPassword] = useState(false);
+    const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -14,6 +14,7 @@ function SignIn() {
             try {
                 const response = await axios.get('http://localhost:3000/users/me', { withCredentials: true });
                 if (response.data) {
+                    // User is already logged in, redirect to home page
                     navigate('/home');
                 }
             } catch (err) {
@@ -34,18 +35,18 @@ function SignIn() {
         try {
             const response = await axios.post('http://localhost:3000/users/signin', formData, {
                 headers: { 'Content-Type': 'application/json' },
-                withCredentials: true,
+                withCredentials: true, // Make sure to include cookies
             });
 
             alert('Sign-in successful!');
-            navigate('/home');
+            navigate('/home'); // Redirect to home page after login
         } catch (err) {
             setError(err.response?.data?.error || 'An error occurred during sign-in.');
         }
     };
 
-    // Fonction pour gérer le clic sur "Forgot your password?"
-    const handleForgotPassword = () => {
+      // Fonction pour gérer le clic sur "Forgot your password?"
+      const handleForgotPassword = () => {
         navigate('/forgot-password', { state: { email: formData.email } }); // Passer l'email à la page ForgotPassword
     };
 
@@ -62,7 +63,7 @@ function SignIn() {
                 <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
                 <div className="password-container">
                     <input
-                        type={showPassword ? "text" : "password"}
+                        type={showPassword ? "text" : "password"} // Toggle between text and password
                         name="password"
                         placeholder="Password"
                         value={formData.password}
@@ -71,13 +72,12 @@ function SignIn() {
                     />
                     <span
                         className="eye-icon"
-                        onClick={() => setShowPassword(!showPassword)}
+                        onClick={() => setShowPassword(!showPassword)} // Toggle password visibility
                     >
-                        {showPassword ? <FaEyeSlash /> : <FaEye />}
+                        {showPassword ? <FaEyeSlash /> : <FaEye />} {/* Toggle between eye and eye-slash icons */}
                     </span>
                 </div>
                 {error && <p style={{ color: 'red' }}>{error}</p>}
-                {/* Lien pour "Forgot your password?" */}
                 <span onClick={handleForgotPassword} style={{ cursor: "pointer", color: "blue", textDecoration: "underline" }}>
   Forgot your password?
 </span>
