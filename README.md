@@ -1,8 +1,21 @@
-# React + Vite
+This repository contains a Project Management Web Application developed as part of a university assignment by a team of passionate software engineering students.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The goal of this application is to provide an efficient platform with a strong focus on collaboration and intelligent assistance.
 
-Currently, two official plugins are available:
+Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Backend: Express.js – A fast and minimalist web framework for building the RESTful API and handling server-side logic.
+
+Frontend: React.js – A powerful JavaScript library used to build a dynamic and responsive user interface.
+
+Database: MongoDB – A flexible, NoSQL document-oriented database for storing application data.
+
+Key Features : 
+
+* User authentication and authorization
+
+* Project, task and team management
+* Team collaboration tools
+* AI assistance integrated in multiple functionalities
+  
+Some features are still in developement 
