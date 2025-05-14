@@ -43,7 +43,7 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-color: #1a1a1a;
+  background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,7 +51,7 @@
   border: 1px solid #ccc;
   position: center;
   cursor: pointer;
-  margin-left: 130px;
+  margin-left: 180px;
 }
 
 .profile-image {
