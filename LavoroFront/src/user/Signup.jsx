@@ -335,9 +335,7 @@ function SignUp() {
     )
   }
 
-  const back = {
-    backgroundColor: "#FFFFFF",
-  }
+ 
 
   return (
     <div  >
